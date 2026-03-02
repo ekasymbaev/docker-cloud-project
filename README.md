@@ -1,37 +1,39 @@
 
-Project 3 — Docker (End-to-End Container + Kubernetes Extra Credit)
+# Project 3 — Docker (End-to-End Container + Kubernetes Extra Credit)
 
 This project builds a lightweight Docker image that automatically:
-	•	reads two text files inside the container
-	•	computes word statistics
-	•	detects the container’s IP address
-	•	writes results to /home/data/output/result.txt
-	•	prints the contents of result.txt to the console and exits
 
-Extra credit: deploys two replicas using Kubernetes (Docker Desktop) and captures pod status output.
+- Reads two text files inside the container
+- Computes word statistics
+- Detects the container’s IP address
+- Writes results to `/home/data/output/result.txt`
+- Prints the contents of `result.txt` to the console and exits
 
-⸻
+Extra credit: deploys **two replicas** using **Kubernetes (Docker Desktop)** and captures pod status output.
 
-✅ Requirements Covered
+---
 
-Docker Container
-	•	Uses a lightweight base image (python:3-alpine)
-	•	Reads:
-	•	/home/data/IF.txt
-	•	/home/data/AlwaysRememberUsThisWay.txt
-	•	Outputs:
-	•	total words in each file
-	•	grand total words
-	•	top 3 frequent words in IF.txt
-	•	top 3 frequent words in AlwaysRememberUsThisWay.txt after splitting contractions
-	•	container IP address
-	•	Writes results to:
-/home/data/output/result.txt
-	•	Prints result.txt to console when the container runs
+## ✅ Requirements Covered
 
-⸻
+### Docker Container
 
-📁 Project Structure
+- Uses a lightweight base image (`python:3-alpine`)
+- Reads:
+  - `/home/data/IF.txt`
+  - `/home/data/AlwaysRememberUsThisWay.txt`
+- Outputs:
+  - Total words in each file
+  - Grand total words
+  - Top 3 frequent words in `IF.txt`
+  - Top 3 frequent words in `AlwaysRememberUsThisWay.txt` after splitting contractions
+  - Container IP address
+- Writes results to:
+  `/home/data/output/result.txt`
+- Prints `result.txt` to console when the container runs
+
+---
+
+## 📁 Project Structure
 
 docker_project3/
 │
@@ -45,17 +47,17 @@ docker_project3/
 │   └── AlwaysRememberUsThisWay.txt
 │
 └── scripts/
-    └── script.py
+└── script.py
 
+---
 
-⸻
+## 🐳 Docker Instructions
 
-🐳 Docker Instructions
+### 1) Build the image
 
-1) Build the image
+From inside the `docker_project3` folder:
 
-From inside the docker_project3 folder:
-
+```bash
 docker build -t project3-image .
 
 
@@ -66,10 +68,10 @@ docker build -t project3-image .
 docker run --rm project3-image
 
 This will:
-	•	execute script.py
-	•	generate /home/data/output/result.txt
-	•	print the contents to the console
-	•	exit automatically
+	•	Execute script.py
+	•	Generate /home/data/output/result.txt
+	•	Print the contents to the console
+	•	Exit automatically
 
 ⸻
 
@@ -111,7 +113,7 @@ You should see 2 running pods.
 
 ⸻
 
-3) Save pod status output
+3) Save pod status output (required)
 
 kubectl get pods > kube_output.txt
 cat kube_output.txt
@@ -134,15 +136,22 @@ kubectl delete -f deployment.yaml
 ⸻
 
 📝 Notes
-	•	Contractions are handled by splitting apostrophes (e.g., don't → don t, I'm → I m).
+	•	Contractions are handled by splitting apostrophes
+(e.g., don't → don t, I'm → I m).
 	•	IP addresses may differ between Docker standalone runs and Kubernetes runs (this is normal).
-	•	The image size is approximately 76MB, which is well below the required 200MB target.
+	•	The Docker image size is approximately 76MB, well below the required 200MB limit.
 
-⸻
+---
 
-If you want, I can now:
-	•	🔹 Make it even more professional (A-level polished)
-	•	🔹 Or simplify it to look more like your friend’s exact format
-	•	🔹 Or format it in perfect GitHub Markdown styling
+Now save it as:
 
-Tell me which version you want.
+README.md
+
+Then push:
+
+```bash
+git add README.md
+git commit -m "Add final README"
+git push
+
+If you want, I can now quickly review your entire repo structure to make sure it looks professional.
