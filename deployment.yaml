@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project3-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: project3
+  template:
+    metadata:
+      labels:
+        app: project3
+    spec:
+      containers:
+      - name: project3-container
+        image: project3-image:latest
+        imagePullPolicy: IfNotPresent
+        command: ["sh", "-c", "python /scripts/script.py && sleep 300"]
+  
+      

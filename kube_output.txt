@@ -1,0 +1,3 @@
+NAME                                   READY   STATUS    RESTARTS   AGE
+project3-deployment-548c8c56f5-g6sm7   1/1     Running   0          5m
+project3-deployment-548c8c56f5-pxfmt   1/1     Running   0          5m
