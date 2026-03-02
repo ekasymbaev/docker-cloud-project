@@ -134,24 +134,3 @@ kubectl delete -f deployment.yaml
 
 
 ⸻
-
-📝 Notes
-	•	Contractions are handled by splitting apostrophes
-(e.g., don't → don t, I'm → I m).
-	•	IP addresses may differ between Docker standalone runs and Kubernetes runs (this is normal).
-	•	The Docker image size is approximately 76MB, well below the required 200MB limit.
-
----
-
-Now save it as:
-
-README.md
-
-Then push:
-
-```bash
-git add README.md
-git commit -m "Add final README"
-git push
-
-If you want, I can now quickly review your entire repo structure to make sure it looks professional.
